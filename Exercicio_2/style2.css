@@ -1,0 +1,86 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(0, 0, 255, 0.1);
+}
+
+#formulario {
+    margin: 30px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 255, 0.1);
+    border: 1px solid rgb(6, 6, 48);
+    border-radius: 10px;
+    max-width: fit-content;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    color:rgb(0, 0, 0)
+}
+
+input[type="text"],input[type="email"],textarea{
+    padding: 10px;
+    border: 1px solid rgb(0, 0, 34);
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+input[type="radio"], input[type="checkbox"]{
+    margin-right: 15px;
+}
+button[type="reset"], input[type="submit"], input[type="radio"]{
+    border-radius: 5px;
+    font-size: 16px;
+    color: rgb(78, 161, 233);
+    background-color: rgb(5, 5, 134);
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button[type="button"]{
+    background-color: rgb(63, 15, 145);
+    font-size: 16px;
+    color: rgb(78, 161, 233);
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+select{
+    padding: 10px;
+    border: 1px solid rgb(141, 110, 243);
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 10px;
+    background-image: linear-gradient(to button rgb(69, 0, 181), white)
+}
+
+select:focus{
+    outline: 2px solid pink;
+    border-color: blueviolet;
+}
+
+legend::before{
+    color: purple;
+    content: →
+}
+
+legend{
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+input:invalid{
+    border: 2px solid rgb(255, 62, 62)
+}
+
+.rodape{
+    margin: 0 auto;
+    text-align: center;
+}

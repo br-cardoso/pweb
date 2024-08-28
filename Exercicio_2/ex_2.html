@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <div id="formulario">
+            <form action="">
+                <section>
+                    <fieldset>
+                        <legend> Informações pessoas do aluno.</legend>
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" required size="50" maxlength="50"
+                            pattern="[a-z A-Z]{1,50}" autofocus>
+                        <br> <br>
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email">
+                        <br> <br>
+                        <label>Sexo</label> <br>
+                        <input type="radio" id="masculino" name="sexo" value="M"> <label>Maculino</label>
+                        <input type="radio" id="feminino" name="sexo" value="F"> <label>Feminino</label>
+                        <input type="radio" id="outro" name="sexo" value="O" checked> <label>Outro</label>
+                        <br> <br>
+                        <label>Passatempos</label>
+                        <input type="checkbox" id="passatempo1" name="passatempo" value="Cozinhar">
+                        <label>Cozinhar</label>
+                        <input type="checkbox" id="passatempo2" name="passatempo" value="Comer">
+                        <label>Comer</label>
+                        <input type="checkbox" id="passatempo3" name="passatempo" value="Ler">
+                        <label>Ler</label>
+                        <input type="checkbox" id="passatempo4" name="passatempo" value="Ouvir Música">
+                        <label>Ouvir Música</label>
+                        <input type="checkbox" id="passatempo5" name="passatempo" value="Assistir FIlmes">
+                        <label>Assistir FIlmes</label>
+                        <input type="checkbox" id="passatempo6" name="passatempo" value="Esportes">
+                        <label>Esportes</label>
+                        <br> <br>
+                        <input type="submit" value="Enviar">
+                        <button type="reset">Limpar</button>
+                        <br><br>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Deixe aqui alguma informação que ache necessária</legend>
+                        <label>Mensagem</label>
+                        <textarea name="mensagem" id="mensagem" cols="50" rows="10" placeholder="vazio"></textarea>
+                    <br><br>
+                        <label>País</label>
+                        <select name="pais" id="pais">
+                            <option value="">Selecione</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Brasil">Brasil</option>
+                        </select>
+                        <br><br>
+                        <button type="button">Cancelar</button>
+                    </fieldset>
+                </section>
+            </form>
+        </div>
+    </main>
+    <footer class="rodape"> Essa página foi criada na aula de PEWB - &copy Todinhos os direitinhos reservadinhos!</footer>
+</body>
+
+</html>
