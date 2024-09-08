@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    max-width: 100%;
+
+}
+
+.i {
+    flex: 1;
+    background-color: aqua;
+    margin: 10px;
+    flex-wrap: wrap;
+}
+
+.principal{
+    height: 250px;
+}
