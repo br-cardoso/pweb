@@ -1,20 +1,148 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    font-family: "Saira Condensed", sans-serif;}
+
+#head {
+    text-align: center;
+    margin-bottom: 5px;
+    max-width: 100%;
+}
+
+#titulo {
+    background-color: rgb(68, 68, 237);
+    color: white;
+    font-size: 60px;
+    font-weight: 500;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding: 0;
+    border-top: 1px solid white;
+    background-color: rgb(68, 68, 237);
+    padding: 2px;
+}
+
+li {
+    list-style: none;
+    display: inline-block;
+    padding: 0;
+    margin-left: 10px;
+    color: white;
+}    
+
+li h2 {
+    font-weight: 50;
+}
+header {
+    width: 100%;
 }
 
 .container {
     display: flex;
     max-width: 100%;
-
+    flex-wrap: wrap;
 }
+
 
 .i {
     flex: 1;
-    background-color: aqua;
+    background-color: rgba(0, 102, 255, 0.059);
     margin: 10px;
-    flex-wrap: wrap;
+    margin: 2px;
+    border: 1px solid black;
+    padding: 2px;
+}
+
+.destaque {
+    height: 300px;
+}
+
+.d1 {
+    flex: 1 1 60%;
+
 }
 
 .principal{
     height: 250px;
 }
+
+.importante, .regular {
+    height: 150px;
+    
+}
+
+.re{
+    flex: 1 1 calc(20% - 15px);
+    height: 150px;
+}
+
+
+
+h3{
+    font-weight: 400;
+}
+
+.principal{
+    display: flex;
+}
+.topicos {
+    flex: 1;
+    background-color: rgba(40, 88, 247, 0.545);
+    height: 65px; 
+    margin: 5px;
+    border-radius: 5px;
+    max-height: fit-content;
+}
+
+span{
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(1, 0, 75);
+}
+
+
+.img1 {
+    height: 198px;
+    width: 95%;
+    margin: auto;
+}
+.img2 {
+    background-color: rgba(0, 0, 255, 0.48);
+    height: 170px;
+    width: 98%;
+    align-items: center;
+    margin: 2px;
+}
+.img4 {
+    width: 100%;
+    height: 180px;
+    background-image: url('img/img4.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    
+}
+
+.img8 {
+    background-color: rgba(0, 0, 255, 0.48);
+    height: 100px;
+    width: 98%;
+    align-items: center;
+    margin: 2px;
+}
+
+.img10{
+    background-color: rgba(0, 0, 255, 0.151);
+    height: 110px;
+    width: 98%;
+    align-items: center;
+    margin: 2px;
+}
+
+
