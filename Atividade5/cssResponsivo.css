@@ -1,0 +1,71 @@
+div{
+    height: 500px;
+    width: 500px;
+}
+
+
+@media screen and (max-width: 420px) {
+    .resp {
+        background-color: rgb(65, 63, 63);
+        
+    }
+    .cor::after {
+        content: "Cor: Cinza";
+    }
+}
+@media screen and (min-width: 421px) and (max-width: 768px) {
+    .resp {
+        background-color: rgb(224, 86, 0);
+        color: white;
+    }
+    .cor::after {
+        content: "Cor: Laranja";
+    }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .resp {
+        background-color: rgb(246, 34, 211);
+        color: white;
+    }
+    .cor::after {
+        content: "Cor: Rosa";
+    }
+}
+@media screen and (min-width: 1025px) and (max-width: 1080px) {
+    .resp {
+        background-color: rgb(230, 78, 78);
+        color: white;
+    }
+    .cor::after {
+        content: "Cor: Vermelho";
+    }
+}
+@media screen and (min-width: 1081px) and (max-width: 1366px) {
+    .resp {
+        background-color: rgb(128, 9, 248);
+        color: white;
+    }
+    .cor::after {
+        content: "Cor: Violeta";
+    }
+}
+@media screen and (min-width: 1367px) and (max-width: 1920px) {
+    .resp {
+        background-color: rgb(248, 200, 9);
+        color: white;
+    }
+    .cor::after {
+        content: "Cor: Amarelo";
+    }
+}
+
+@media  (min-width: 1921px) {
+    .resp {
+        background-color: rgb(26, 176, 0);
+        color: white;
+    }
+    .cor::after {
+        content: "Cor: Verde";
+    }
+}
+

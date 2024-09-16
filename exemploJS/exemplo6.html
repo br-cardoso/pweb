@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        x=1;
+        var y=2;
+
+        function exemplo () {
+            var z = 3; // variavel local, só existe dentro da func
+            w = 4;
+            let i=5;
+
+            x = x *10;
+            y = y *10;
+
+            return `x=${x} y=${y} z=${z} w=${w} i=${i}`;
+        }
+
+        alert(exemplo());
+
+        alert(`x=${x} y=${y} z=${z} w=${w} i=${i}`);
+    </script>
+
+</body>
+</html>
