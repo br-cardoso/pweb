@@ -1,0 +1,17 @@
+h1 {
+    text-align: center;
+    color:brown;
+    font-size: 200px;
+}
+
+h3 {
+    text-align: center;
+    color: rgba(165, 42, 42, 0.582);
+    font-size: 100px;
+}
+
+button {
+    height: 100px;
+    width: 170px;
+}
+

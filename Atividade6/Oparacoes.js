@@ -9,5 +9,5 @@ mod = n1%n2;
 
 
 
-alert("soma: " + soma + "\n subtração: " + sub + "\n produto: " + prod
+alert(" soma: " + soma + "\n subtração: " + sub + "\n produto: " + prod
     + "\n divisão: " + div + "\n resto: " + mod);
