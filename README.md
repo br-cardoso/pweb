@@ -8,3 +8,5 @@
 [Atividade 6 (parte 1)](https://br-cardoso.github.io/pweb/Atividade6/operacoes.html) <br>
 [Atividade 6 (parte 2 ](https://br-cardoso.github.io/pweb/Atividade6/media.html) <br>
 [Atividade 7](https://br-cardoso.github.io/pweb/Atividade7/index.html) <br>
+[Atividade 8](https://br-cardoso.github.io/pweb//Atividade8/index.html) <br>
+[Atividade 9](https://br-cardoso.github.io/pweb//Atividade9/index.html) <br>
