@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Title</title>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <title>Kanban Estudos</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <h1 class="titulo">K A N B A N</h1>
+            <h2 class="subtitulo">PLANEJAMENTO DE ESTUDOS</h2>
+        </header>
+        <main>
+            <div id="quadro" class="container">
+                
+                <!-- coluna 1 -->
+                <div class="coluna" class="todo">
+                    <div class="nomecol"><h3>CONTEÚDO A ESTUDAR</h3></div>
+                    <div> aqui esta o resto da coluna</div>
+                </div>
+
+                <!-- coluna 2 -->
+                <div class="coluna" class="doing">
+                    <div class="nomecol"><h3>ESTUDANDO</h3></div>
+                </div>
+
+                <!-- coluna 3 -->
+                <div class="coluna" class="done">
+                    <div class="nomecol"><h3>ESTUDADO</h3></div>
+                </div>
+
+
+            </div>
+        <!-- formulario para uma nova tarefa-->
+            <div id="formnew">
+                <div class="compnew">
+
+                    <div class="tituloform grupoform">
+                        <h2 id="criartarefa">CRIAR TAREFA</h2>
+                        <button id="closenew">X</button>
+                    </div>
+                    <!-- descrição-->
+                    <div class="nova-tarefa grupoform">
+                        <div class="grupoform description">
+                            <label for="description">DESCRIÇÃO</label>  
+                            <textarea id="description" rows="4"></textarea>
+                        </div>
+                    <!-- titulo nova tarefa-->
+                        <div class="grupoform criartitulo">
+                            <label for="criartitulo">TÍTULO DA TAREFA</label>  
+                            <textarea id="criartitulo" rows="1"></textarea>
+                        </div>
+                    <!-- priridade dropdown-->
+                        <div class="grupoform prioridade">
+                            <label for="prioridade">PRIORIDADE</label>  
+                            <select id="prioridade">
+                                <option>Muito baixa</option>
+                                <option>Baixa</option>
+                                <option>Média</option>
+                                <option>Alta</option>
+                                <option>Urgente</option>
+                            </select>
+                        </div>
+
+                        <div class="grupoform" class="tempo">
+                            <label for="tempo">TEMPO ESTIMADO</label>  
+                            <input type="number" id="tempo" min="1" max="50" />
+                        </div>
+
+                        <button id="btncriar"> CRIAR TAREFA</button>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        <footer>
+            <!-- place footer here -->
+        </footer>
+
+    </body>
+</html>
