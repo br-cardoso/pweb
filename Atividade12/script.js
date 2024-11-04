@@ -1,3 +1,7 @@
+
+const base = parseFloat(prompt("Digite a base do retângulo:"));
+const altura = parseFloat(prompt("Digite a altura do retângulo:"));
+
 class Retangulo{
     constructor (base, altura) {
         this.base = base;
@@ -8,9 +12,6 @@ class Retangulo{
         return (base * altura);
     };
 }
-
-const base = parseFloat(prompt("Digite a base do retângulo:"));
-const altura = parseFloat(prompt("Digite a altura do retângulo:"));
 
 const ret = new Retangulo(base, altura);
 
