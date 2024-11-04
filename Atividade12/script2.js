@@ -1,85 +1,65 @@
-const nomeC = prompt("Digite o nome da conta corrente:");
-const bancoC = prompt("Digite qual o banco da conta corrente:");
-const numC = prompt("Digite o número da conta corrente:");
-const saldoC = parseFloat(prompt("Digite o saldo da conta corrente:")); 
-const saldoEsp = parseFloat(prompt("Digite o saldo especial da conta corrente:")); 
-
-const nomeP = prompt("Digite o nome da conta poupança: ");
-const bancoP = prompt("Digite o banco da conta poupança: ");
-const numP = prompt("Digite o número da conta poupança: ");
-const saldoP = parseFloat(prompt("Digite o saldo da conta poupança: "));
-const jurosP = parseFloat(prompt("Digite a taxa de juros da conta poupança: "));
-const venc = prompt("Digite a data de vencimento da conta poupança: ");
-    
+// Classe Conta
 class Conta {
-    constructor(nome, banco, num, saldo) {
+    constructor(nome, banco, numConta, saldo) {
         this.nome = nome;
         this.banco = banco;
-        this.num = num;
+        this.numConta = numConta;
         this.saldo = saldo;
     }
-    
-    getnome() {
-        return nome;
+
+    // Métodos get e set
+    setnome(nome) {
+        this.nome = nome;
     }
 
-    getBanco() {
-        return banco;
+    setBanco(banco) {
+        this.banco = banco;
     }
 
-    getnum() {
-        return num;
+    setnumConta(numero) {
+        this.numConta = numero;
     }
 
-    getSaldo() {
-        return saldo;
+    setSaldo(saldo) {
+        this.saldo = saldo;
     }
 }
 
 class Corrente extends Conta {
-    constructor(nomeC, bancoC, numC, saldo, saldoEsp) {
-        super(nomeC, bancoC, numC, saldo);
-        this.saldoEsp = saldoEsp; 
-    }
-    getSaldoC() {
-        return saldoC;
+    constructor(nome, banco, numConta, saldo, saldoEspecial) {
+        super(nome, banco, numConta, saldo);
+        this.saldoEspecial = saldoEspecial; // Propriedade adicional
     }
 }
 
 class Poupanca extends Conta {
-    constructor(nomeP, bancoP, numP, saldoP, jurosP, venc) {
-        super(nomeP, bancoP, numP, saldoP);
-        this.jurosP = jurosP; 
-        this.venc = venc; 
+    constructor(nome, banco, numConta, saldo, juros, dataVencimento) {
+        super(nome, banco, numConta, saldo);
+        this.juros = juros; // Propriedade adicional
+        this.dataVencimento = dataVencimento; // Propriedade adicional
     }
-
-    getjurosP (){
-        return jurosP;
-    } 
-    getVenc (){
-        return venc;
-    } 
-        
 }
 
+function criarContas() {
+    const nomeCorrente = prompt("Digite o nome do correntista da conta corrente:");
+    const bancoCorrente = prompt("Digite o banco da conta corrente:");
+    const numContaCorrente = prompt("Digite o número da conta corrente:");
+    const saldoCorrente = parseFloat(prompt("Digite o saldo da conta corrente:"));
+    
+    const contaCorrente = new Corrente(nomeCorrente, bancoCorrente, numContaCorrente, saldoCorrente, 1000); // Exemplo de saldo especial
 
+    const nomeP = prompt("Digite o nome do correntista da conta poupança:");
+    const bancoP = prompt("Digite o banco da conta poupança:");
+    const numP = prompt("Digite o número da conta poupança:");
+    const saldoP = parseFloat(prompt("Digite o saldo da conta poupança:"));
+    const jurosP = parseFloat(prompt("Digite a taxa de juros da conta poupança:"));
+    const venc = prompt("Digite a data de vencimento da conta poupança:");
 
-const contaCorrente = new Corrente(nomeC, bancoC, numC, saldoC, saldoEsp);
-const contaPoupanca = new Poupanca(nomeP, bancoP, numP, saldoP, jurosP, venc);
+    const contaPoupanca = new Poupanca(nomeP, bancoP, numP, saldoP, jurosP, venc);
 
-   alert("Dados da Conta Corrente:" + 
-    "\nnome: " + contaCorrente.getnomeC() +
-    "\nbanco: " + contaCorrente.getBanco() +
-    "\nnumero da conta: " + contaCorrente.getnumC() + 
-    "\nSaldo da conta: " +   contaCorrente.getSaldo() +
-    "\nSaldo especial da conta: " +   contaCorrente.getSaldoEsp()
-);
-   alert("Dados da Conta Poupança:" + 
-    "\nnome: " + contaPoupanca.getnomeC() +
-    "\nbanco: " + contaPoupanca.getBanco() +
-    "\nnumero da conta: " + contaPoupanca.getnumC() + 
-    "\nSaldo da conta: " +   contaPoupanca.getSaldo() +
-    "\nJuros da conta: " +   contaCorrente.getjurosP() +
-    "\nVencimento dos juros da conta: " +   contaCorrente.getVenc()
-   );
+    console.log("Dados da Conta Corrente:", contaCorrente);
+    console.log("Dados da Conta Poupança:", contaPoupanca);
+}
 
+// Chamando a função para criar contas
+criarContas();
