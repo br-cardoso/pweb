@@ -28,15 +28,15 @@ class Conta {
 class Corrente extends Conta {
     constructor(nome, banco, numConta, saldo, saldoEspecial) {
         super(nome, banco, numConta, saldo);
-        this.saldoEspecial = saldoEspecial; // Propriedade adicional
+        this.saldoEspecial = saldoEspecial; 
     }
 }
 
 class Poupanca extends Conta {
     constructor(nome, banco, numConta, saldo, juros, dataVencimento) {
         super(nome, banco, numConta, saldo);
-        this.juros = juros; // Propriedade adicional
-        this.dataVencimento = dataVencimento; // Propriedade adicional
+        this.juros = juros; 
+        this.dataVencimento = dataVencimento; 
     }
 }
 
@@ -46,7 +46,7 @@ function criarContas() {
     const numContaCorrente = prompt("Digite o número da conta corrente:");
     const saldoCorrente = parseFloat(prompt("Digite o saldo da conta corrente:"));
     
-    const contaCorrente = new Corrente(nomeCorrente, bancoCorrente, numContaCorrente, saldoCorrente, 1000); // Exemplo de saldo especial
+    const contaCorrente = new Corrente(nomeCorrente, bancoCorrente, numContaCorrente, saldoCorrente, 1000);
 
     const nomeP = prompt("Digite o nome do correntista da conta poupança:");
     const bancoP = prompt("Digite o banco da conta poupança:");
@@ -60,6 +60,3 @@ function criarContas() {
     console.log("Dados da Conta Corrente:", contaCorrente);
     console.log("Dados da Conta Poupança:", contaPoupanca);
 }
-
-// Chamando a função para criar contas
-criarContas();
