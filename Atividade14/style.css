@@ -1,0 +1,18 @@
+h1, h2, p {
+    text-align: center;
+    clear: both;
+
+}
+
+input {
+    border-radius: 10px;
+}
+
+.op {
+    display: flex;
+    align-items: center;
+}
+
+input, label {
+    align-items: center ;
+}
