@@ -187,7 +187,7 @@ label {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    background-color: rgb(206, 152, 204);
+    background-color: rgb(134, 183, 252);
     border: solid 4px aliceblue;
 }
 #quadro .coluna .conteudo .post label{
