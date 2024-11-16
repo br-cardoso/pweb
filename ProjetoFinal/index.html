@@ -11,6 +11,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=edit" />
     </head>
 
     <body>
@@ -53,7 +54,6 @@
                 <div class="compnew">
 
                     <input type="hidden" id="idTarefa">
-                    <input type="hidden" id="idcoluna">
 
                     <div class="tituloform grupoform">
                         <h2 id="titulocriar">CRIAR TAREFA</h2>
@@ -77,7 +77,7 @@
                         <div class="grupoform prioridade">
                             <label for="prioridade">PRIORIDADE</label>  
                             <select id="prioridade" >
-                                <option value="default" id="optionSelect" disabled selected> Seleciona a prioridade</option>
+                                <option value="default" id="optionSelect" disabled selected> Selecione a prioridade</option>
                                 <option value="1" name="Muito baixa">Muito baixa</option>
                                 <option value="2" name="Baixa">Baixa</option>
                                 <option value="3" name="Média">Média</option>
@@ -90,6 +90,16 @@
                             <label for="tempo">TEMPO ESTIMADO</label>  
                             <input type="number" id="tempo" min="1" max="50" placeholder="Selecione o tempo estimado em horas"/>
                         </div>
+<!-- -->
+                        <div class="grupoform colunaopt">
+                            <label for="colunaopt">Escolha a coluna</label>
+                            <select id="colunaopt" >
+                                <option value="1"> 1</option>
+                                <option value="2"> 2</option>
+                                <option value="3"> 3</option>
+                            </select>
+                        </div>
+
                     </div>
                         <button id="btncriar" onclick="criarTarefa()"> CRIAR TAREFA</button>
                         <button id="btneditar" onclick="editarTarefa()"> EDITAR TAREFA</button>
@@ -104,3 +114,5 @@
     </body>
     <script src="script.js"></script>
 </html>
+
+

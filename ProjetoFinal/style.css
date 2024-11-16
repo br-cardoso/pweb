@@ -127,6 +127,7 @@
     height: 70vh;
     overflow: hidden;
     padding: 4px;
+    overflow: auto;   
 }
 
 .grupoform {
@@ -186,14 +187,14 @@ label {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    background-color: rgb(152, 181, 206);
+    background-color: rgb(206, 152, 204);
     border: solid 4px aliceblue;
 }
 #quadro .coluna .conteudo .post label{
     border-bottom: solid 1px aliceblue;
     border-left: 2vh solid rgba(0, 0, 255, 0)
 }
-#quadro .coluna .conteudo .post .tituloCard{
+#quadro .coluna .conteudo .post .tituloPost{
     border: solid 2px aliceblue;
     font-size: 4vh;
     text-align: center;
@@ -202,9 +203,23 @@ label {
     padding: 0px 1.5vh 0px 1.5vh;
 }
 
-#iconeEdit img {
-    width: 3vh;
+.tituloPost {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.icones {
+    display: flex; 
+    gap: 5px; 
+}
+
+#iconeEdit img, #iconeDelete img {
+    width: 3vh; 
     height: 3vh;
-    display: inline-block;
-    align-items: end;
+    cursor: pointer;
+}
+
+.colunaopt {
+    display: none;
 }

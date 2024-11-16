@@ -1,5 +1,4 @@
 const $formnew = document.getElementById('formnew');
-
 const $descr = document.getElementById('description');
 const $titu = document.getElementById('criartitulo');
 const $pri = document.getElementById('prioridade');
@@ -9,36 +8,27 @@ const $tituloc = document.getElementById('titulocriar');
 const $tituloe = document.getElementById('tituloeditar');
 const $btnc = document.getElementById('btncriar');
 const $btne = document.getElementById('btneditar');
-
-const $coluna1 = document.querySelector('#coluna1 .conteudo');
-const $coluna2 = document.querySelector('#coluna2 .conteudo');
-const $coluna3 = document.querySelector('#coluna3 .conteudo');
-
-const $valCol1 = $coluna1.dataset.column;
-const $valCol2 = $coluna2.dataset.column;
-const $valCol3 = $coluna3.dataset.column;
+const $colunaop = document.getElementById('colunaopt');
 
 let idAtual = 1;
-function addID () {
-   return (idAtual ++);
+function addID() {
+    return idAtual++;
 }
 
-var listaTarefas = [];
+var t = localStorage.getItem("tarefas");
+let listaTarefas = t ? JSON.parse(t) : [];
+criaPost();
 
 function abrirForm(id) {
     $formnew.style.display = "flex";
 
-    if(id) {
+    if (id) {
         $tituloc.style.display = "none";
         $tituloe.style.display = "block";
         $btnc.style.display = "none";
         $btne.style.display = "block";
 
-
-        const t = listaTarefas.findIndex(function (tarefa) {
-            return tarefa.id==id;
-        });
-
+        const t = listaTarefas.findIndex(tarefa => tarefa.id == id);
         let tarefa = listaTarefas[t];
 
         $idT.value = tarefa.id;
@@ -46,134 +36,139 @@ function abrirForm(id) {
         $titu.value = tarefa.titulo;
         $pri.value = tarefa.privalue;
         $temp.value = tarefa.tempo;
-    }
-    else {
+    } else {
         $tituloc.style.display = "block";
         $tituloe.style.display = "none";
         $btnc.style.display = "block";
         $btne.style.display = "none";
     }
 }
+
 function fecharForm() {
-     $descr.value = '';
-     $titu.value = '';
-     $pri.value = 'default';
-     $temp.value = '';
-     $idT.value = '';
+    $descr.value = '';
+    $titu.value = '';
+    $pri.value = 'default';
+    $temp.value = '';
+    $idT.value = '';
 
     $formnew.style.display = "none";
-
 }
 
-function criaPost () {
-    const listaPost = listaTarefas.map(function(tarefa) {
-        return ` 
-        <div id="${tarefa.id}" class="post"  draggable="true" ondragstart="dragstartHandler(event)"> 
-            <div class="tituloCard">
-                <spam> <b>${tarefa.titulo}</b> </spam>
-                <div id="iconeEdit" onclick="abreEdit(${tarefa.id})"> <img  src="./edit.png" alt="Editar"/> </div>
-            </div>
+function criaPost() {
+    document.querySelectorAll('[data-column]').forEach(col => col.querySelector('.conteudo').innerHTML = '');
 
-            <div class="descrCard">
-                <label> <b>${tarefa.descricao}</b> </label>
-            </div>
+    listaTarefas.forEach(function(tarefa) {
+        const contColuna = document.querySelector(`[data-column="${tarefa.coluna}"] .conteudo`);
 
-            <div class="prioridadeCard">
-                <label> <b>${tarefa.prioridade}</b> </label>
+        const postit = `
+        <div id="${tarefa.id}" class="post" draggable="true" ondragstart="dragstartHandler(event)">
+            <div class="tituloPost">
+                <span><b>${tarefa.titulo}</b></span>
+                 <div class="icones">
+                    <div id="iconeDelete" onclick="excluirTarefa(${tarefa.id})"><img src="./delete.png" alt="Excluir"/></div>
+                    <div id="iconeEdit" onclick="abreEdit(${tarefa.id})"><img src="./edit.png" alt="Editar"/></div>
+                </div>
             </div>
-
-            <div class="tempoCard">
-                <label> <b>${tarefa.tempo} horas</b> </label>
+            <div class="descrPost">
+                <label><b>${tarefa.descricao}</b></label>
+            </div>
+            <div class="prioridadePost">
+                <label><b>${tarefa.prioridade}</b></label>
+            </div>
+            <div class="tempoPost">
+                <label><b>${tarefa.tempo} horas</b></label>
             </div>
         </div>
         `;
-    } );
 
-    $coluna1.innerHTML = listaPost.join('');
-    console.log(listaTarefas);
-    
+        contColuna.innerHTML += postit;
+    });
 }
 
-function abreEdit (id){
+function abreEdit(id) {
     abrirForm(id);
     console.log(id);
 }
 
 function criarTarefa() {
-
     const tarefa = {
         id: addID(),
-        idcoluna: $valCol1,
-        descricao : $descr.value,
-        titulo : $titu.value,
-        prioridade : $pri.options[$pri.selectedIndex].getAttribute('name'),
-        privalue : $pri.value,
-        tempo : $temp.value
-    }
+        coluna: $colunaop.value,
+        descricao: $descr.value,
+        titulo: $titu.value,
+        prioridade: $pri.options[$pri.selectedIndex].getAttribute('name'),
+        privalue: $pri.value,
+        tempo: $temp.value
+    };
 
     listaTarefas.push(tarefa);
+    localStorage.setItem("tarefas", JSON.stringify(listaTarefas))
     criaPost();
-
     fecharForm();
 }
 
-function editarTarefa (id) {
+function editarTarefa() {
+    const index = listaTarefas.findIndex(tarefa => tarefa.id == $idT.value);
 
-    const tarefaedit = {
-        descricao : $descr.value,
-        titulo : $titu.value,
-        prioridade : $pri.options[$pri.selectedIndex].getAttribute('name'),
-        privalue : $pri.value,
-        tempo : $temp.value
+    if (index !== -1) {
+        listaTarefas[index] = {
+            ...listaTarefas[index],
+            descricao: $descr.value,
+            titulo: $titu.value,
+            prioridade: $pri.options[$pri.selectedIndex].getAttribute('name'),
+            privalue: $pri.value,
+            tempo: $temp.value
+        };
     }
 
-    const te = listaTarefas.findIndex(function (tarefaedit) {
-        return tarefaedit.id == $idT.value;
-    });
+    localStorage.setItem("tarefas", JSON.stringify(listaTarefas))
 
-    listaTarefas[te] = tarefaedit;
-    
     fecharForm();
     criaPost();
 }
 
- function mover (idT, idC) {
-    if(idT && idC) {
-        listaTarefas = listaTarefas.map( function (tarefa) {
-        if(idT !== tarefa.id)
-            return tarefa;
-        else {
-            // spread = uma cópia do objeto que voce pode alterar um campo
-            // como se em C você tivesse uma structre e aleterasse só um atributo
-            return {...tarefa, idcoluna:idC} ;
-            }
-        });
-
-        criaPost();
-    }
-
-    
-}
 
 function dragstartHandler(ev) {
-    // Add the target element's id to the data transfer object
-    ev.dataTransfer.setData("text/plain", ev.target.id);
+    ev.dataTransfer.setData("application/my-app", ev.target.id);
     ev.dataTransfer.effectAllowed = "move";
-  }
+}
 
-  function dropHandler(ev) {
-    ev.preventDefault();
-    // Get the id of the target and add the moved element to the target's DOM
-    const idTar = ev.dataTransfer.getData("text/plain");
-    const idCol = ev.target.is(".conteudo").dataset.column;
-
-    mover(idTar, idCol);
-    alert(tarefa.id + "\n" + tarefa.idcoluna);
-  }
-
-  function dragoverHandler(ev) {
+function dragoverHandler(ev) {
     ev.preventDefault();
     ev.dataTransfer.dropEffect = "move";
-  }
+}
 
-  
+function dropHandler(ev) {
+    ev.preventDefault();
+
+    const data = ev.dataTransfer.getData("application/my-app");
+    const tarefaCont = document.getElementById(data);
+    const targetColumn = ev.currentTarget.closest(".coluna");
+
+    if (targetColumn && tarefaCont) {
+        targetColumn.querySelector(".conteudo").appendChild(tarefaCont);
+
+        const idTarefa = parseInt(data);
+        const columnId = parseInt(targetColumn.getAttribute("data-column"));
+        const indiceTarefa = listaTarefas.findIndex(tarefa => tarefa.id === idTarefa);
+
+        if (indiceTarefa !== -1) {
+            listaTarefas[indiceTarefa].coluna = columnId;
+        }
+
+        localStorage.setItem("tarefas", JSON.stringify(listaTarefas));
+        criaPost();
+    }
+}
+
+function excluirTarefa(id) {
+    const indicet = listaTarefas.findIndex(tarefa => tarefa.id === id);
+
+    if (indicet !== -1) {
+        listaTarefas.splice(indicet, 1);
+
+        localStorage.setItem("tarefas", JSON.stringify(listaTarefas));
+        
+        criaPost();
+    }
+}
